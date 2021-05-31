@@ -1,0 +1,228 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "teacher": {
+              "name": "Teacher 1",
+              "email": "teacher1@gmail.com"
+          },
+          "students": [
+              {
+                  "name": "Student 1",
+                  "email": "student1@gmail.com"
+              },
+              {
+                  "name": "Student 2",
+                  "email": "student2@gmail.com"
+              }
+          ],
+          "subject": {
+              "subjectCode": "MAT",
+              "name": "Maths"
+          },
+          "class": {
+              "classCode": "P1-1",
+              "name": "P1 Integrity"
+          }
+      }
+  ],
+  "required": [
+      "teacher",
+      "students",
+      "subject",
+      "class"
+  ],
+  "properties": {
+      "teacher": {
+          "$id": "#/properties/teacher",
+          "type": "object",
+          "title": "The teacher schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+              {
+                  "name": "Teacher 1",
+                  "email": "teacher1@gmail.com"
+              }
+          ],
+          "required": [
+              "name",
+              "email"
+          ],
+          "properties": {
+              "name": {
+                  "$id": "#/properties/teacher/properties/name",
+                  "type": "string",
+                  "title": "The name schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "Teacher 1"
+                  ]
+              },
+              "email": {
+                  "$id": "#/properties/teacher/properties/email",
+                  "type": "string",
+                  "title": "The email schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "teacher1@gmail.com"
+                  ]
+              }
+          },
+          "additionalProperties": true
+      },
+      "students": {
+          "$id": "#/properties/students",
+          "type": "array",
+          "title": "The students schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  {
+                      "name": "Student 1",
+                      "email": "student1@gmail.com"
+                  },
+                  {
+                      "name": "Student 2",
+                      "email": "student2@gmail.com"
+                  }
+              ]
+          ],
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/students/items",
+              "anyOf": [
+                  {
+                      "$id": "#/properties/students/items/anyOf/0",
+                      "type": "object",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                          {
+                              "name": "Student 1",
+                              "email": "student1@gmail.com"
+                          }
+                      ],
+                      "required": [
+                          "name",
+                          "email"
+                      ],
+                      "properties": {
+                          "name": {
+                              "$id": "#/properties/students/items/anyOf/0/properties/name",
+                              "type": "string",
+                              "title": "The name schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                  "Student 1"
+                              ]
+                          },
+                          "email": {
+                              "$id": "#/properties/students/items/anyOf/0/properties/email",
+                              "type": "string",
+                              "title": "The email schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                  "student1@gmail.com"
+                              ]
+                          }
+                      },
+                      "additionalProperties": true
+                  }
+              ]
+          }
+      },
+      "subject": {
+          "$id": "#/properties/subject",
+          "type": "object",
+          "title": "The subject schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+              {
+                  "subjectCode": "MAT",
+                  "name": "Maths"
+              }
+          ],
+          "required": [
+              "subjectCode",
+              "name"
+          ],
+          "properties": {
+              "subjectCode": {
+                  "$id": "#/properties/subject/properties/subjectCode",
+                  "type": "string",
+                  "title": "The subjectCode schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "MAT"
+                  ]
+              },
+              "name": {
+                  "$id": "#/properties/subject/properties/name",
+                  "type": "string",
+                  "title": "The name schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "Maths"
+                  ]
+              }
+          },
+          "additionalProperties": true
+      },
+      "class": {
+          "$id": "#/properties/class",
+          "type": "object",
+          "title": "The class schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+              {
+                  "classCode": "P1-1",
+                  "name": "P1 Integrity"
+              }
+          ],
+          "required": [
+              "classCode",
+              "name"
+          ],
+          "properties": {
+              "classCode": {
+                  "$id": "#/properties/class/properties/classCode",
+                  "type": "string",
+                  "title": "The classCode schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "P1-1"
+                  ]
+              },
+              "name": {
+                  "$id": "#/properties/class/properties/name",
+                  "type": "string",
+                  "title": "The name schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "P1 Integrity"
+                  ]
+              }
+          },
+          "additionalProperties": true
+      }
+  },
+  "additionalProperties": true
+}
